@@ -1,7 +1,14 @@
+import Footer from "./comp/Footer";
+import Header from "./comp/Header";
+import Hero from "./comp/Hero";
+import TaskBoard from "./comp/task/TaskBoard.jsx";
 function App() {
   return (
     <>
-      <p className="mx-auto text-center justify-center">hello</p>
+      <Header></Header>
+      <Hero></Hero>
+      <TaskBoard></TaskBoard>
+      <Footer></Footer>
     </>
   );
 }
