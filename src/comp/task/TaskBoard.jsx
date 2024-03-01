@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AddTask from "./AddTask";
 import Search from "./Search";
 import TaskAction from "./TaskAction";
 import TaskList from "./TaskList";
@@ -11,18 +12,26 @@ const TaskBoard = () => {
     tags: ["web", "react", "js"],
 
     priority: "high",
-    isFavourite: true,
+    isFavorite: true,
   };
+
   const [tasks, setTasks] = useState([defaultTask]);
+  const [showModal, setShowModal] = useState(false);
+
+  //   const handleAddTask = () => {
+  //     setShowModal(true);
+  //   };
   return (
     <>
       <section className="mb-20" id="tasks">
+        {/* //if true */}
+        {showModal && <AddTask />}
         <div className="container mx-auto">
           <div className="p-2 flex justify-end">
             <Search></Search>
           </div>
           <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
-            <TaskAction></TaskAction>
+            <TaskAction onAddTask={() => setShowModal(true)}></TaskAction>
 
             <TaskList tasks={tasks}></TaskList>
           </div>
