@@ -18,14 +18,16 @@ const TaskBoard = () => {
   const [tasks, setTasks] = useState([defaultTask]);
   const [showModal, setShowModal] = useState(false);
 
-  //   const handleAddTask = () => {
-  //     setShowModal(true);
-  //   };
+  const handleAddTask = (newTask) => {
+    console.log(newTask);
+    setTasks([...tasks, newTask]);
+    setShowModal(false);
+  };
   return (
     <>
       <section className="mb-20" id="tasks">
         {/* //if true */}
-        {showModal && <AddTask />}
+        {showModal && <AddTask onSave={handleAddTask} />}
         <div className="container mx-auto">
           <div className="p-2 flex justify-end">
             <Search></Search>
